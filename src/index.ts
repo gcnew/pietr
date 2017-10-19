@@ -92,7 +92,7 @@ function reportAndExit() {
         for (const [ title, err ] of failed) {
             console.log(`\n ===== ${ title } =====`);
 
-            if (err && ('showDiff' in err) && err.showDiff !== false) {
+            if (showDiff(err)) {
                 err.message && console.log(err.message);
                 console.log('  expected:', err.expected);
                 console.log('  actual:', err.actual);
@@ -103,4 +103,12 @@ function reportAndExit() {
     }
 
     exit(failed.length && 1);
+}
+
+function showDiff(err: any) {
+     return err
+        && (
+            (('showDiff' in err) && err.showDiff !== false)
+            || (('actual' in err) && ('expected' in err))
+        );
 }
