@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2017",
+        "lib": [ "es6" ],
+
+        "declaration": true,
+
+        "forceConsistentCasingInFileNames": true,
+
+        "noUnusedParameters": true,
+        // "noUnusedLocals": true,
+        "noImplicitThis": true,
+        "noEmitOnError": true,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "strictNullChecks": true,
+        "allowUnusedLabels": false,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowUnreachableCode": false,
+
+        "outDir": "lib"
+    },
+
+    "include": [
+        "src/*.ts",
+        "tests/**/*.ts"
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "name": "pietr",
+    "version": "0.1.0",
+    "license": "MIT",
+
+    "description": "A simple, lightweight nodejs test runner",
+
+    "keywords": [ "simple", "test", "runner" ],
+
+    "author": {
+        "name": "gcnew"
+    },
+
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gcnew/pietr.git"
+    },
+
+    "files": [
+        "lib", "bin"
+    ],
+
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+
+    "bin": {
+        "pietr": "./bin/pietr"
+    },
+
+    "dependencies": {
+        "cli-script-utils": "0.x.x"
+    },
+
+    "scripts": {
+        "build-lib": "tsc && rm lib/pietr.d.ts",
+        "prepublishOnly": "build-lib"
+    }
+}
