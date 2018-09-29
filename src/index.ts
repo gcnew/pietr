@@ -108,7 +108,7 @@ function reportAndExit() {
 function showDiff(err: any) {
      return err
         && (
-            (('showDiff' in err) && err.showDiff !== false)
-            || (('actual' in err) && ('expected' in err))
+            (!('showDiff' in err) || err.showDiff !== false)
+            && (('actual' in err) && ('expected' in err))
         );
 }
