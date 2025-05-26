@@ -19,6 +19,7 @@
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "allowUnreachableCode": false,
+        "strict": true,
 
         "outDir": "lib"
     },

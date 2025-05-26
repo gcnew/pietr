@@ -18,11 +18,16 @@ I created `pietr` because I wanted a runner that doesn't expose itself through g
 
 ## Usage
 
- - `test(testFn: Function): void`
- - `test(title: string, testFn: Function): void`
+ - `test(title: string, fn: () => void)` - adds a new test case
+ - `xtest(title: string, fn: () => void)` - skips this test case
+ - `onlyTest(title: string, fn: () => void)` - runs this test only (... and all the others marked with 'only')
 
-If you don't provide an explicit `title`, or `title` is empty, `pietr` takes the name of `testFn` and uses it as title. It's considered an error, if the so derived title is falsy.
+ - `group(title: string, testFn: Function): void` - adds a new group
+ - `xgroup(title: string, testFn: Function): void` - skips this group
+ - `onlyGroup(title: string, testFn: Function): void` - runs this group only (... and all the others marked with 'only')
 
+NOTES:
+ - if at least one group is marked as `only`, only groups and global tests marked with `only` will be run
 
 #### example.ts
 
@@ -31,14 +36,24 @@ You can use any assertion library you'd like. Throwing exceptions yourself is fi
 ```ts
 import { test } from 'pietr'
 
-// Using arrow functions and explicit `title`
-test('Test via arrows', () => {
+test('simple test', () => {
     assert(1 === 1, 'Math is broken :/');
 });
 
-// using function's name as title
-test(function shouldBeAlwaysTrue() {
-    assert(true, 'Logic is broken too :/');
+xtest('this test is skipped', () => {
+    // skipped    
+});
+
+// note: global _only_ tests are also run in the presence of an onlyGroup
+// onlyTest('only this and other tests marked with _only_ will be run', () => {    
+// });
+
+group('this is a section', () => {
+    test('tests can be nested one level deep', () => {        
+    });
+
+    testOnly('I won't be run if onlyGroup exists', () => {
+    });
 });
 
 function assert(condition: boolean, message: string) {

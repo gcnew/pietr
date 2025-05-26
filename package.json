@@ -31,6 +31,10 @@
         "cli-script-utils": "0.x.x"
     },
 
+    "devDependencies": {
+        "@types/node": "^16.11.1"
+    },
+
     "scripts": {
         "build-lib": "tsc && rm lib/pietr.d.ts",
         "prepublishOnly": "build-lib"
