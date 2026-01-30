@@ -1,6 +1,6 @@
 {
     "name": "pietr",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "license": "MIT",
 
     "description": "A simple, lightweight nodejs test runner",
@@ -33,6 +33,6 @@
 
     "scripts": {
         "build-lib": "tsc && rm lib/pietr.d.ts",
-        "prepublishOnly": "build-lib"
+        "prepublishOnly": "npm run build-lib"
     }
 }
