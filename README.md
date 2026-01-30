@@ -9,7 +9,7 @@ To use it, just import it like you would any other module and define your tests 
 ## Installation
 
 ```bash
-npm intsall --save-dev pietr
+npm install --save-dev pietr
 ```
 
 ## Why yet another test runner?
